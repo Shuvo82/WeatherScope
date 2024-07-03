@@ -16,10 +16,11 @@ class ThemeService extends GetxService {
       secondaryHeaderColor: const Color(0xff066834),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
           elevation: 0, foregroundColor: Color(0xffe82c2e)),
-      scaffoldBackgroundColor: const Color(0xfff9fefd),
+      scaffoldBackgroundColor: const Color(0xff1F1D47),
       brightness: Brightness.light,
       dividerColor: Colors.grey.shade800,
       focusColor: const Color(0xffe82c2e),
+      hoverColor: const Color(0xffe82c2e),
       hintColor: const Color(0xff9f9f9f),
       splashColor: Colors.grey.shade200,
       highlightColor: Colors.grey.shade50,
@@ -27,9 +28,6 @@ class ThemeService extends GetxService {
       primaryColorDark: const Color(0xff1d1d1f),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(foregroundColor: const Color(0xffe82c2e)),
-      ),
-      appBarTheme: const AppBarTheme(
-        backgroundColor: Color(0xfff9fefd),
       ),
     );
     // colorScheme: const ColorScheme.light(

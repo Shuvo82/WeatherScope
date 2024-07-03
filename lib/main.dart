@@ -16,8 +16,34 @@ initServices() async {
   Get.log('All services started...');
 }
 
+void _setInitialCountries() {
+  final box = GetStorage();
+  bool isFirstLaunch = box.read('isFirstLaunch') ?? true;
+  if (isFirstLaunch) {
+    List<String> countryList = [
+      'Dhaka',
+      'Tokyo',
+      'London',
+      'New York',
+      'Paris',
+      'Berlin',
+      'Rome',
+      'Moscow',
+      'Madrid',
+      'Vienna',
+      'Amsterdam',
+      'Brussels',
+    ];
+    box.write('COUNTRIES', countryList);
+    box.write('isFirstLaunch', false);
+
+    // 'Prague' , 'Stockholm' , 'Budapest' , 'Oslo' , 'Copenhagen' , 'Helsinki' , 'Dublin' , 'Lisbon' , 'Warsaw' , 'Athens' , 'Zurich' , 'Reykjavik' , 'Luxembourg' , 'Ljubljana' , 'Valletta' , 'Monaco'  , 'San Marino' , 'Vatican City' , 'Minsk' , 'Tirana' , 'Chisinau' , 'Yerevan' , 'Tbilisi' , 'Baku' , 'Bishkek' , 'Dushanbe' , 'Ashgabat' , 'Tashkent' , 'Nur-Sultan' , 'Astana' , 'Tehran' , 'Baghdad' , 'Jerusalem' , 'Amman' , 'Beirut' , 'Damascus' , 'Ankara' , 'Nicosia' , 'Cairo' , 'Riyadh'  , 'Doha' , 'Abu Dhabi' , 'Muscat' , 'Sanaa' , 'Manama' , 'Rabat' , 'Tunis' , 'Algiers' , 'Tripoli' , 'Khartoum' , 'Niamey' , 'Nouakchott' , 'Banjul' , 'Conakry' , 'Freetown' , 'Monrovia' , 'Bamako' , 'Ouagadougou' ,  'Yaounde' , 'Bangui' , 'Brazzaville' , 'Kinshasa' , 'Luanda' , 'Libreville' , 'Malabo' , 'Bata' , 'Lome' , 'Accra' , 'Abidjan' , 'Porto-Novo' , 'Cotonou' , 'Lagos' , 'Yaounde' , 'Douala' , 'Bamenda'
+  }
+}
+
 void main() async {
   await initServices();
+  _setInitialCountries();
   runApp(
     ScreenUtilInit(
       designSize: const Size(375, 812),
