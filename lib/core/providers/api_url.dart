@@ -3,9 +3,11 @@ class ApiClient {
 
   static String weatherApi = "$baseUrl/data/2.5/weather?q=";
   static String apiKey = "713c5bae5a4e237d71e3afef6e075d20";
+  static String iconUrl = "https://openweathermap.org/img/wn/";
 }
-//https://api.openweathermap.org/data/2.5/weather?q=dhaka,bd&APPID=713c5bae5a4e237d71e3afef6e075d20
 
+//https://api.openweathermap.org/data/2.5/weather?q=dhaka,bd&APPID=713c5bae5a4e237d71e3afef6e075d20
+//https://openweathermap.org/img/wn/09d@2x.png
 //this is sample api response
 Map sampleData = {
   "coord": {"lon": 90.4074, "lat": 23.7104},

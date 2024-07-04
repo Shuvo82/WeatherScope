@@ -24,8 +24,8 @@ class ThemeService extends GetxService {
       hintColor: const Color(0xff9f9f9f),
       splashColor: Colors.grey.shade200,
       highlightColor: Colors.grey.shade50,
-      cardColor: const Color.fromARGB(255, 74, 69, 179),
-      primaryColorDark: const Color.fromARGB(255, 3, 0, 66),
+      cardColor: Color.fromARGB(255, 74, 69, 179),
+      primaryColorDark: Color.fromARGB(255, 3, 0, 66),
     );
     // colorScheme: const ColorScheme.light(
     //     primary: Color(0xffe82c2e), secondary: Color(0xffe82c2e),));

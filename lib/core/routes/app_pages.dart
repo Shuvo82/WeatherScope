@@ -20,7 +20,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.SPLASH_SCREEN,
-      page: () => const SplashView(),
+      page: () => SplashView(),
       binding: SplashBinding(),
     ),
   ];

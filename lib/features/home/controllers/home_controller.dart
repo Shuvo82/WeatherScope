@@ -1,11 +1,14 @@
 import 'dart:convert';
 
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
 import 'package:get/get_rx/get_rx.dart';
 import 'package:zaynax_weather_forecast/core/providers/api_manager.dart';
 import 'package:zaynax_weather_forecast/core/providers/api_url.dart';
+import 'package:zaynax_weather_forecast/core/services/connectivity_check.dart';
 import 'package:zaynax_weather_forecast/features/home/models/weather_model.dart';
 import 'package:zaynax_weather_forecast/features/home/repositories/weather_repository.dart';
 import 'package:get_storage/get_storage.dart';
@@ -13,17 +16,37 @@ import 'package:get_storage/get_storage.dart';
 class HomeController extends GetxController {
   final weatherDataList = <WeatherModel>[].obs;
   RxBool isWeatherDataListLoaded = false.obs;
+  RxBool isCityListEmpty = false.obs;
   RxBool isCountryValid = false.obs;
   final box = GetStorage();
 
   @override
-  void onInit() {
+  Future<void> onInit() async {
+    checkInternetConnection();
     getWeatherList();
     super.onInit();
   }
 
+  Future<void> checkInternetConnection() async {
+    var connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult != ConnectivityResult.mobile ||
+        connectivityResult != ConnectivityResult.wifi ||
+        connectivityResult != ConnectivityResult.ethernet ||
+        connectivityResult != ConnectivityResult.vpn) {
+      Get.log('test: No Internet connection available');
+      Get.snackbar(
+        'No Internet Connection',
+        'Please check your internet connection and try again.',
+        snackPosition: SnackPosition.TOP,
+        backgroundColor: Get.theme.snackBarTheme.backgroundColor,
+        colorText: Colors.red,
+      );
+    }
+  }
+
   Future getWeatherList() async {
     isWeatherDataListLoaded.value = false;
+    //isCityListEmpty.value = false;
     print('test: Fetching weather data...');
 
     var countries = box.read('COUNTRIES');
@@ -51,6 +74,7 @@ class HomeController extends GetxController {
                 Colors.red.shade400, //Get.theme.snackBarTheme.backgroundColor,
             colorText: Colors.white,
           );
+          break;
         }
       }
 
@@ -58,12 +82,13 @@ class HomeController extends GetxController {
       isWeatherDataListLoaded.value = true;
       print('test: Weather data fetched successfully!');
     } else {
+      isCityListEmpty.value = true;
       Get.snackbar(
         'No countries selected',
         'Please select countries to view weather data',
         snackPosition: SnackPosition.TOP,
         backgroundColor: Get.theme.snackBarTheme.backgroundColor,
-        colorText: Get.theme.snackBarTheme.actionTextColor,
+        colorText: Colors.white,
       );
     }
   }
@@ -79,7 +104,7 @@ class HomeController extends GetxController {
           'Weather data for $countryName will be fetched shortly',
           snackPosition: SnackPosition.TOP,
           backgroundColor: Get.theme.snackBarTheme.backgroundColor,
-          colorText: Get.theme.snackBarTheme.actionTextColor,
+          colorText: Colors.white,
         );
         getWeatherList();
       }
@@ -89,7 +114,7 @@ class HomeController extends GetxController {
         'Please enter a country name',
         snackPosition: SnackPosition.TOP,
         backgroundColor: Get.theme.snackBarTheme.backgroundColor,
-        colorText: Get.theme.snackBarTheme.actionTextColor,
+        colorText: Colors.white,
       );
     }
   }
@@ -105,7 +130,7 @@ class HomeController extends GetxController {
         'Please enter a different country name',
         snackPosition: SnackPosition.TOP,
         backgroundColor: Get.theme.snackBarTheme.backgroundColor,
-        colorText: Get.theme.snackBarTheme.actionTextColor,
+        colorText: Colors.white,
       );
 
       return false;
@@ -133,17 +158,17 @@ class HomeController extends GetxController {
             'Please enter a valid country name',
             snackPosition: SnackPosition.TOP,
             backgroundColor: Get.theme.snackBarTheme.backgroundColor,
-            colorText: Get.theme.snackBarTheme.actionTextColor,
+            colorText: Colors.white,
           );
           return false;
         }
       } catch (e) {
         Get.snackbar(
           'Error',
-          'Failed to fetch data. Exception: $e',
+          ' Something went wrong! Failed to add country.',
           snackPosition: SnackPosition.TOP,
           backgroundColor: Get.theme.snackBarTheme.backgroundColor,
-          colorText: Get.theme.snackBarTheme.actionTextColor,
+          colorText: Colors.redAccent,
         );
         return false;
       }
@@ -161,11 +186,11 @@ class HomeController extends GetxController {
 
   String kelvinToCelsius(double kelvin) {
     String celsius = (kelvin - 273.15).round().toString();
-    return '$celsius°C';
+    return '$celsius° C';
   }
 
   String kelvinToFahrenheit(double kelvin) {
     String fahrenheit = ((kelvin - 273.15) * 9 / 5 + 32).round().toString();
-    return '$fahrenheit°F';
+    return '$fahrenheit° F';
   }
 }
