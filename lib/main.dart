@@ -10,6 +10,7 @@ import 'core/services/theme_service.dart';
 initServices() async {
   Get.log('starting services ...');
   await GetStorage.init();
+  print(' test: GetStorage initialized...');
   await Get.putAsync<ConnectivityController>(
       () async => ConnectivityController());
   await Get.putAsync<ThemeService>(() async => ThemeService());
@@ -20,6 +21,8 @@ void _setInitialCountries() {
   final box = GetStorage();
   bool isFirstLaunch = box.read('isFirstLaunch') ?? true;
   if (isFirstLaunch) {
+    // box.remove('COUNTRIES');
+    // print('test: Setting initial countries...');
     List<String> countryList = [
       'Dhaka',
       'Tokyo',
@@ -27,17 +30,16 @@ void _setInitialCountries() {
       'New York',
       'Paris',
       'Berlin',
-      'Rome',
-      'Moscow',
-      'Madrid',
-      'Vienna',
-      'Amsterdam',
-      'Brussels',
+      // 'Rome',
+      // 'Moscow',
+      // 'Madrid',
+      // 'Vienna',
+      // 'Amsterdam',
+      // 'Brussels',
     ];
     box.write('COUNTRIES', countryList);
     box.write('isFirstLaunch', false);
-
-    // 'Prague' , 'Stockholm' , 'Budapest' , 'Oslo' , 'Copenhagen' , 'Helsinki' , 'Dublin' , 'Lisbon' , 'Warsaw' , 'Athens' , 'Zurich' , 'Reykjavik' , 'Luxembourg' , 'Ljubljana' , 'Valletta' , 'Monaco'  , 'San Marino' , 'Vatican City' , 'Minsk' , 'Tirana' , 'Chisinau' , 'Yerevan' , 'Tbilisi' , 'Baku' , 'Bishkek' , 'Dushanbe' , 'Ashgabat' , 'Tashkent' , 'Nur-Sultan' , 'Astana' , 'Tehran' , 'Baghdad' , 'Jerusalem' , 'Amman' , 'Beirut' , 'Damascus' , 'Ankara' , 'Nicosia' , 'Cairo' , 'Riyadh'  , 'Doha' , 'Abu Dhabi' , 'Muscat' , 'Sanaa' , 'Manama' , 'Rabat' , 'Tunis' , 'Algiers' , 'Tripoli' , 'Khartoum' , 'Niamey' , 'Nouakchott' , 'Banjul' , 'Conakry' , 'Freetown' , 'Monrovia' , 'Bamako' , 'Ouagadougou' ,  'Yaounde' , 'Bangui' , 'Brazzaville' , 'Kinshasa' , 'Luanda' , 'Libreville' , 'Malabo' , 'Bata' , 'Lome' , 'Accra' , 'Abidjan' , 'Porto-Novo' , 'Cotonou' , 'Lagos' , 'Yaounde' , 'Douala' , 'Bamenda'
+    //box.write('my', "Shuvo");
   }
 }
 

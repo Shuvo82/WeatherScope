@@ -20,15 +20,12 @@ class ThemeService extends GetxService {
       brightness: Brightness.light,
       dividerColor: Colors.grey.shade800,
       focusColor: const Color(0xffe82c2e),
-      hoverColor: const Color(0xffe82c2e),
+      hoverColor: const Color(0xffe82c2e), //for error and delete
       hintColor: const Color(0xff9f9f9f),
       splashColor: Colors.grey.shade200,
       highlightColor: Colors.grey.shade50,
-      cardColor: const Color(0xfffeffff),
-      primaryColorDark: const Color(0xff1d1d1f),
-      textButtonTheme: TextButtonThemeData(
-        style: TextButton.styleFrom(foregroundColor: const Color(0xffe82c2e)),
-      ),
+      cardColor: const Color.fromARGB(255, 74, 69, 179),
+      primaryColorDark: const Color.fromARGB(255, 3, 0, 66),
     );
     // colorScheme: const ColorScheme.light(
     //     primary: Color(0xffe82c2e), secondary: Color(0xffe82c2e),));

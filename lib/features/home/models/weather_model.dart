@@ -144,24 +144,14 @@ class MainWeatherData {
 class WindData {
   double? speed;
   int? direction;
-  double? gustSpeed;
 
-  WindData({this.speed, this.direction, this.gustSpeed});
+  WindData({this.speed, this.direction});
 
   factory WindData.fromJson(Map<String, dynamic> json) {
     return WindData(
       speed: json['speed'].toDouble(),
       direction: json['deg'],
-      gustSpeed: json['gust'].toDouble(),
     );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'speed': speed,
-      'deg': direction,
-      'gust': gustSpeed,
-    };
   }
 }
 

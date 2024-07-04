@@ -9,7 +9,9 @@ class APIManager {
   Future<dynamic> get(String url) async {
     var responseJson;
     try {
-      final response = await http.get(Uri.parse(url));
+      final response = await http.get(
+        Uri.parse(url),
+      );
 
       responseJson = _response(response);
     } on SocketException {

@@ -8,12 +8,14 @@ class WeatherRepository {
   /// Fetches weather data for the given country name.
   Future<WeatherModel> getWeatherData(String countryName) async {
     APIManager manager = APIManager();
+    print("test: Fetching weather data for $countryName");
     String uri =
-        '${ApiClient.weatherApi}$countryName+",bd&APPID="+${ApiClient.apiKey}';
-    print(">>>>>>>>>>>>>>>>>>>>>>>>>>>$uri");
+        '${ApiClient.weatherApi}$countryName&APPID=${ApiClient.apiKey}';
+    print("test: API URL :$uri");
     final response = await manager.get(uri);
 
     // Assuming the response is the entire weather data object
+    print("test: Response for $countryName: $response");
     return WeatherModel.fromJson(response);
   }
 }
