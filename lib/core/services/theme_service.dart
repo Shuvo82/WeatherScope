@@ -12,7 +12,7 @@ class ThemeService extends GetxService {
 
   ThemeData getLightTheme() {
     return ThemeData(
-      primaryColor: const Color(0xffe82c2e),
+      primaryColor: const Color(0xffED1A56),
       secondaryHeaderColor: const Color(0xff066834),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
           elevation: 0, foregroundColor: Color(0xffe82c2e)),
@@ -24,7 +24,7 @@ class ThemeService extends GetxService {
       hintColor: const Color(0xff9f9f9f),
       splashColor: Colors.grey.shade200,
       highlightColor: Colors.grey.shade50,
-      cardColor: Color.fromARGB(255, 74, 69, 179),
+      cardColor: Color.fromARGB(255, 75, 68, 219),
       primaryColorDark: Color.fromARGB(255, 3, 0, 66),
     );
     // colorScheme: const ColorScheme.light(

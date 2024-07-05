@@ -17,11 +17,11 @@ class HomeView extends GetView<HomeController> {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(
-          'Weather Forecast',
+          'Zaynax Weather ',
           style: GoogleFonts.poppins(
             fontSize: 20.0,
             fontWeight: FontWeight.w500,
-            color: Theme.of(context).splashColor,
+            color: Theme.of(context).primaryColor,
           ),
         ),
         centerTitle: true,
@@ -114,7 +114,7 @@ class HomeView extends GetView<HomeController> {
             } else {
               return Center(
                 child: SpinKitFadingCircle(
-                  color: Theme.of(context).splashColor,
+                  color: Theme.of(context).primaryColor,
                   size: 50.0,
                 ),
               );

@@ -6,8 +6,8 @@ import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
 import 'package:get/get_rx/get_rx.dart';
-import 'package:zaynax_weather_forecast/core/providers/api_manager.dart';
-import 'package:zaynax_weather_forecast/core/providers/api_url.dart';
+import 'package:zaynax_weather_forecast/core/api_controller/api_manager.dart';
+import 'package:zaynax_weather_forecast/core/api_controller/api_url.dart';
 import 'package:zaynax_weather_forecast/core/services/connectivity_check.dart';
 import 'package:zaynax_weather_forecast/features/home/models/weather_model.dart';
 import 'package:zaynax_weather_forecast/features/home/repositories/weather_repository.dart';
@@ -29,11 +29,12 @@ class HomeController extends GetxController {
 
   Future<void> checkInternetConnection() async {
     var connectivityResult = await (Connectivity().checkConnectivity());
-    if (connectivityResult != ConnectivityResult.mobile ||
-        connectivityResult != ConnectivityResult.wifi ||
-        connectivityResult != ConnectivityResult.ethernet ||
-        connectivityResult != ConnectivityResult.vpn) {
-      Get.log('test: No Internet connection available');
+    if (connectivityResult == ConnectivityResult.mobile ||
+        connectivityResult == ConnectivityResult.wifi ||
+        connectivityResult == ConnectivityResult.ethernet ||
+        connectivityResult == ConnectivityResult.vpn) {
+      //Get.log('test: No Internet connection available');
+    } else {
       Get.snackbar(
         'No Internet Connection',
         'Please check your internet connection and try again.',
@@ -68,7 +69,7 @@ class HomeController extends GetxController {
         } catch (e) {
           Get.snackbar(
             'Error',
-            'Failed to fetch weather data! $e',
+            'Failed to fetch weather data! ',
             snackPosition: SnackPosition.TOP,
             backgroundColor:
                 Colors.red.shade400, //Get.theme.snackBarTheme.backgroundColor,

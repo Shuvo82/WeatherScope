@@ -14,8 +14,8 @@ class AddNewCountry extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton.extended(
-      backgroundColor: const Color.fromARGB(255, 64, 7, 66),
-
+      backgroundColor: Theme.of(context).primaryColor.withOpacity(0.8),
+      //materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
       onPressed: () async {
         // FocusScope.of(context).unfocus();
         // Show bottom sheet for adding country
@@ -37,7 +37,7 @@ class AddNewCountry extends StatelessWidget {
                   ),
                   // margin: EdgeInsets.only(top: 50, bottom: 50),
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     //crossAxisAlignment: CrossAxisAlignment.center,

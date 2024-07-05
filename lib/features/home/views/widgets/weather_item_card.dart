@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:zaynax_weather_forecast/core/api_controller/api_url.dart';
 import 'package:zaynax_weather_forecast/features/home/controllers/home_controller.dart';
 
 class WeatherItemCard extends StatelessWidget {
@@ -93,11 +94,11 @@ class WeatherItemCard extends StatelessWidget {
                   style: GoogleFonts.poppins(
                     fontSize: 20.0,
                     fontWeight: FontWeight.w500,
-                    color: Theme.of(context).splashColor,
+                    color: Theme.of(context).primaryColor,
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 15,
                 ),
                 Text(
                   'Temperature: ${controller.kelvinToCelsius(controller.weatherDataList[index].mainWeatherData!.temperature ?? 0)}',
@@ -121,14 +122,15 @@ class WeatherItemCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image.network(
-                  'http://openweathermap.org/img/wn/${controller.weatherDataList[index].weatherConditions![0].icon}@2x.png',
+                  '${ApiClient.iconUrl}${controller.weatherDataList[index].weatherConditions![0].icon}@2x.png',
                   height: 80,
                   width: 80,
                 ),
                 Text(
                   controller.weatherDataList[index].weatherConditions![0]
-                          .description ??
+                          .mainCondition ??
                       'none',
+                  overflow: TextOverflow.ellipsis,
                   style: GoogleFonts.poppins(
                     fontSize: 16.0,
                     fontWeight: FontWeight.w400,

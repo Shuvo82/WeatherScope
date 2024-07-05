@@ -1,14 +1,9 @@
 import 'dart:async';
-import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
-
-import 'package:zaynax_weather_forecast/core/services/connectivity_check.dart';
-import 'package:zaynax_weather_forecast/features/home/views/home_view.dart';
 
 import '../../../core/routes/app_pages.dart';
-import '../../../core/services/internet_connection_check_service.dart';
 
 class SplashView extends StatefulWidget {
   //static var routeName = '/splashScreen';
@@ -53,14 +48,15 @@ class _SplashScreenState extends State<SplashView> {
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Theme.of(context).hoverColor,
+                  color: Theme.of(context).primaryColor,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+              SpinKitFadingCube(
+                color: Theme.of(context).primaryColor,
+                size: 50.0,
               ),
             ],
           ),
