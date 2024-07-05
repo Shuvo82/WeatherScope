@@ -43,6 +43,7 @@ dependencies:
   flutter_spinkit: ^5.2.1
   internet_connection_checker: ^1.0.0+1
   cool_alert: ^2.0.1
+  launcher_name: ^1.0.2
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +71,9 @@ flutter_launcher_icons:
   ios_app_store_id: "123456789"
   ios_custom_size: true
   ios_size: 120
+
+launcher_name:
+  default: "Zaynax Weather"  
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
