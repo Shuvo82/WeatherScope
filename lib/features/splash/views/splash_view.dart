@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 import '../../../core/routes/app_pages.dart';
 
 class SplashView extends StatefulWidget {
+  const SplashView({super.key});
+
   //static var routeName = '/splashScreen';
 
   @override
@@ -36,7 +38,7 @@ class _SplashScreenState extends State<SplashView> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: Container(
+      body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: Center(

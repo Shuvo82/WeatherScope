@@ -97,7 +97,7 @@ class WeatherItemCard extends StatelessWidget {
                     color: Theme.of(context).primaryColor,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Text(

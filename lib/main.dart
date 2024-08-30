@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-
 import 'core/routes/app_pages.dart';
 import 'core/services/internet_connection_check_service.dart';
 import 'core/services/theme_service.dart';
@@ -10,7 +9,6 @@ import 'core/services/theme_service.dart';
 initServices() async {
   Get.log('starting services ...');
   await GetStorage.init();
-  print(' test: GetStorage initialized...');
   await Get.putAsync<ConnectivityController>(
       () async => ConnectivityController());
   await Get.putAsync<ThemeService>(() async => ThemeService());
