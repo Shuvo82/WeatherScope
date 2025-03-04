@@ -5,7 +5,7 @@ Weather Scope is a weather forecasting application built with Flutter.
 ## App Information
 
 - **App Name:** Weather Scope
-- **Flutter Version:** 3.27.4
+- **Flutter Version:** 3.29.0
 - **State Management:** GetX
 - **Weather API Website:** [OpenWeatherMap](https://openweathermap.org/)
 - **API URL with Keys:** [Weather API](https://api.openweathermap.org/data/2.5/weather?q=dhaka,bd&APPID=713c5bae5a4e237d71e3afef6e075d20)

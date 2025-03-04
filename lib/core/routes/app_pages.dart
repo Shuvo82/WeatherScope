@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:weather_scope/features/splash/views/splash_view.dart';
 import '../../features/home/bindings/home_binding.dart';
 import '../../features/home/views/home_view.dart';
+import '../../features/splash/views/splash_view.dart';
 
 part 'app_routes.dart';
 
