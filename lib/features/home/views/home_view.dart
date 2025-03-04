@@ -92,13 +92,28 @@ class HomeView extends GetView<HomeController> {
                             : Padding(
                                 padding:
                                     const EdgeInsets.only(top: 10, bottom: 100),
-                                child: Text(
-                                  'Press and hold to remove country!',
-                                  textAlign: TextAlign.center,
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 12.0,
-                                    color: Theme.of(context).hintColor,
-                                  ),
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      'Press and hold to remove country!',
+                                      textAlign: TextAlign.center,
+                                      style: GoogleFonts.poppins(
+                                        fontSize: 12.0,
+                                        color: Theme.of(context).hintColor,
+                                      ),
+                                    ),
+SizedBox(
+  height: 10
+),
+                                    Text(
+                                      'Made by Shuvo',
+                                      textAlign: TextAlign.center,
+                                      style: GoogleFonts.poppins(
+                                        fontSize: 12.0,
+                                        color: Theme.of(context).hintColor,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                       );
