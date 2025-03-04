@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:zaynax_weather_forecast/core/services/connectivity_check.dart';
-import 'package:zaynax_weather_forecast/features/home/controllers/home_controller.dart';
+
+import '../../../../core/services/connectivity_check.dart';
+import '../../controllers/home_controller.dart';
+
 
 class AddNewCountry extends StatelessWidget {
   const AddNewCountry({

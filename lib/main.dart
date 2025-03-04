@@ -51,7 +51,7 @@ void main() async {
       splitScreenMode: true,
       builder: (_, child) {
         return GetMaterialApp(
-          title: "Zaynax Weather",
+          title: "Weather Scope",
           initialRoute: AppPages.INITIAL,
           getPages: AppPages.routes,
           debugShowCheckedModeBanner: false,

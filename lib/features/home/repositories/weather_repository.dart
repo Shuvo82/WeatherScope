@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
-import 'package:zaynax_weather_forecast/features/home/models/weather_model.dart';
 
 import '../../../core/api_controller/api_manager.dart';
 import '../../../core/api_controller/api_url.dart';
+import '../models/weather_model.dart';
 
 class WeatherRepository {
   /// Fetches weather data for the given country name.

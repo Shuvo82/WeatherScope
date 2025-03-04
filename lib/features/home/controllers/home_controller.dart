@@ -6,12 +6,12 @@ import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
 import 'package:get/get_rx/get_rx.dart';
-import 'package:zaynax_weather_forecast/core/api_controller/api_manager.dart';
-import 'package:zaynax_weather_forecast/core/api_controller/api_url.dart';
-import 'package:zaynax_weather_forecast/core/services/connectivity_check.dart';
-import 'package:zaynax_weather_forecast/features/home/models/weather_model.dart';
-import 'package:zaynax_weather_forecast/features/home/repositories/weather_repository.dart';
+
 import 'package:get_storage/get_storage.dart';
+
+import '../../../core/api_controller/api_url.dart';
+import '../models/weather_model.dart';
+import '../repositories/weather_repository.dart';
 
 class HomeController extends GetxController {
   final weatherDataList = <WeatherModel>[].obs;

@@ -46,7 +46,7 @@ class _SplashScreenState extends State<SplashView> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Zaynax Weather Forecast',
+                'Weather Scope',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,

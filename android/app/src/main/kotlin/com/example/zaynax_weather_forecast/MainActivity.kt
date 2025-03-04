@@ -1,4 +1,4 @@
-package com.example.zaynax_weather_forecast
+package com.example.weather_scope
 
 import io.flutter.embedding.android.FlutterActivity
 

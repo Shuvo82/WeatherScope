@@ -17,7 +17,7 @@ class HomeView extends GetView<HomeController> {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(
-          'Zaynax Weather ',
+          'Weather Scope ',
           style: GoogleFonts.poppins(
             fontSize: 20.0,
             fontWeight: FontWeight.w500,

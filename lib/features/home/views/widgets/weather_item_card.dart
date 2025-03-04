@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:zaynax_weather_forecast/core/api_controller/api_url.dart';
-import 'package:zaynax_weather_forecast/features/home/controllers/home_controller.dart';
+
+
+import '../../../../core/api_controller/api_url.dart';
+import '../../controllers/home_controller.dart';
 
 class WeatherItemCard extends StatelessWidget {
   final int index;

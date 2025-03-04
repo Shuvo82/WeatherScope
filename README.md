@@ -1,11 +1,11 @@
-# Zaynax Weather
+# Weather Scope
 
-Zaynax Weather is a weather forecasting application built with Flutter.
+Weather Scope is a weather forecasting application built with Flutter.
 
 ## App Information
 
-- **App Name:** Zaynax Weather
-- **Flutter Version:** 3.22.2
+- **App Name:** Weather Scope
+- **Flutter Version:** 3.27.4
 - **State Management:** GetX
 - **Weather API Website:** [OpenWeatherMap](https://openweathermap.org/)
 - **API URL with Keys:** [Weather API](https://api.openweathermap.org/data/2.5/weather?q=dhaka,bd&APPID=713c5bae5a4e237d71e3afef6e075d20)
@@ -22,7 +22,7 @@ Zaynax Weather is a weather forecasting application built with Flutter.
 
 ## Setup and Run the Project
 
-- You have to clone the GitHub repository from this link “https://github.com/Shuvo82/zaynax_weather”
+- You have to clone the GitHub repository from this link “https://github.com/Shuvo82/WeatherScope”
 - Then you have to make sure that Flutter 3.22.2 is installed on your computer. 
 - Then write flutter pub get In the terminal. Make sure that you are in the projects directory in the terminal.
 

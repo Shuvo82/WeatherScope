@@ -1,6 +1,6 @@
 {
-    "name": "zaynax_weather_forecast",
-    "short_name": "zaynax_weather_forecast",
+    "name": "weather_scope",
+    "short_name": "weather_scope",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
