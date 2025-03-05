@@ -42,46 +42,49 @@ class HomeView extends GetView<HomeController> {
           ),
         ],
       ),
-      body: Obx(
-        () {
-          //  print(controller.weatherDataListLoaded.isTrue);
-          if (controller.isCityListEmpty.isTrue) {
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Center(
-                child: Text(
-                  textAlign: TextAlign.center,
-                  'No countries selected! Please add a country to view weather data.',
-                  style: GoogleFonts.poppins(
-                    fontSize: 18.0,
-                    color: Theme.of(context).hintColor,
-                  ),
+      body: Obx(() {
+        //  print(controller.weatherDataListLoaded.isTrue);
+        if (controller.isCityListEmpty.isTrue) {
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+              child: Text(
+                textAlign: TextAlign.center,
+                'No countries selected! Please add a country to view weather data.',
+                style: GoogleFonts.poppins(
+                  fontSize: 18.0,
+                  color: Theme.of(context).hintColor,
                 ),
               ),
-            );
-          } else {
-            if (controller.isWeatherDataListLoaded.isTrue) {
-              return RefreshIndicator(
-                onRefresh: () async {
-                  if (await ConnectivityCheck(context)
-                      .checkInternetConnection()) {
-                    controller.getWeatherList();
-                  }
+            ),
+          );
+        } else {
+          if (controller.isWeatherDataListLoaded.isTrue) {
+            return RefreshIndicator(
+              onRefresh: () async {
+                if (await ConnectivityCheck(
+                  context,
+                ).checkInternetConnection()) {
+                  controller.getWeatherList();
+                }
+              },
+              child: ListView.separated(
+                itemCount: controller.weatherDataList.length + 1,
+                shrinkWrap: true,
+                physics: const AlwaysScrollableScrollPhysics(),
+                separatorBuilder: (context, index) {
+                  return const SizedBox(height: 12);
                 },
-                child: ListView.separated(
-                  itemCount: controller.weatherDataList.length + 1,
-                  shrinkWrap: true,
-                  physics: const AlwaysScrollableScrollPhysics(),
-                  separatorBuilder: (context, index) {
-                    return const SizedBox(height: 12);
-                  },
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                  itemBuilder: (context, index) {
-                    if (index == controller.weatherDataList.length) {
-                      return Center(
-                        child: controller.weatherDataList.isEmpty
-                            ? Text(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 12,
+                ),
+                itemBuilder: (context, index) {
+                  if (index == controller.weatherDataList.length) {
+                    return Center(
+                      child:
+                          controller.weatherDataList.isEmpty
+                              ? Text(
                                 'No countries selected!',
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.poppins(
@@ -89,9 +92,11 @@ class HomeView extends GetView<HomeController> {
                                   color: Theme.of(context).hintColor,
                                 ),
                               )
-                            : Padding(
-                                padding:
-                                    const EdgeInsets.only(top: 10, bottom: 100),
+                              : Padding(
+                                padding: const EdgeInsets.only(
+                                  top: 10,
+                                  bottom: 100,
+                                ),
                                 child: Column(
                                   children: [
                                     Text(
@@ -102,9 +107,7 @@ class HomeView extends GetView<HomeController> {
                                         color: Theme.of(context).hintColor,
                                       ),
                                     ),
-SizedBox(
-  height: 10
-),
+                                    SizedBox(height: 10),
                                     Text(
                                       'Made by Shuvo',
                                       textAlign: TextAlign.center,
@@ -116,27 +119,26 @@ SizedBox(
                                   ],
                                 ),
                               ),
-                      );
-                    } else {
-                      return WeatherItemCard(
-                        index: index,
-                        controller: controller,
-                      );
-                    }
-                  },
-                ),
-              );
-            } else {
-              return Center(
-                child: SpinKitFadingCircle(
-                  color: Theme.of(context).primaryColor,
-                  size: 50.0,
-                ),
-              );
-            }
+                    );
+                  } else {
+                    return WeatherItemCard(
+                      index: index,
+                      controller: controller,
+                    );
+                  }
+                },
+              ),
+            );
+          } else {
+            return Center(
+              child: SpinKitFadingCircle(
+                color: Theme.of(context).primaryColor,
+                size: 50.0,
+              ),
+            );
           }
-        },
-      ),
+        }
+      }),
 
       floatingActionButton: AddNewCountry(controller: controller),
     );

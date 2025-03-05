@@ -4,12 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/services/connectivity_check.dart';
 import '../../controllers/home_controller.dart';
 
-
 class AddNewCountry extends StatelessWidget {
-  const AddNewCountry({
-    super.key,
-    required this.controller,
-  });
+  const AddNewCountry({super.key, required this.controller});
 
   final HomeController controller;
 
@@ -38,21 +34,24 @@ class AddNewCountry extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   // margin: EdgeInsets.only(top: 50, bottom: 50),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 10,
+                  ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     //crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       TextField(
-                          controller: _controller,
-                          decoration: const InputDecoration(
-                            hintText: 'Enter country name',
-                          ),
-                          style: GoogleFonts.poppins(
-                            fontSize: 16.0,
-                            color: Theme.of(context).splashColor,
-                          )),
+                        controller: _controller,
+                        decoration: const InputDecoration(
+                          hintText: 'Enter country name',
+                        ),
+                        style: GoogleFonts.poppins(
+                          fontSize: 16.0,
+                          color: Theme.of(context).splashColor,
+                        ),
+                      ),
                       const SizedBox(height: 20),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -66,29 +65,34 @@ class AddNewCountry extends StatelessWidget {
                                 Theme.of(context).hoverColor,
                               ),
                             ),
-                            child: Text('Cancel',
-                                style: TextStyle(
-                                  color: Theme.of(context).splashColor,
-                                  fontWeight: FontWeight.bold,
-                                )),
+                            child: Text(
+                              'Cancel',
+                              style: TextStyle(
+                                color: Theme.of(context).splashColor,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
                           ElevatedButton(
                             onPressed: () async {
                               // Add country to storage
 
-                              if (await ConnectivityCheck(context)
-                                  .checkInternetConnection()) {
+                              if (await ConnectivityCheck(
+                                context,
+                              ).checkInternetConnection()) {
                                 controller.addCountry(_controller.text);
                               }
 
                               // Close the bottom sheet
                               // Navigator.pop(context);
                             },
-                            child: Text('Save',
-                                style: TextStyle(
-                                  color: Theme.of(context).primaryColorDark,
-                                  fontWeight: FontWeight.bold,
-                                )),
+                            child: Text(
+                              'Save',
+                              style: TextStyle(
+                                color: Theme.of(context).primaryColorDark,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
                         ],
                       ),
@@ -100,8 +104,8 @@ class AddNewCountry extends StatelessWidget {
           );
         }
       },
-      //tooltip: 'Add new country.',
 
+      //tooltip: 'Add new country.',
       label: Text(
         'Add Country',
         style: GoogleFonts.poppins(

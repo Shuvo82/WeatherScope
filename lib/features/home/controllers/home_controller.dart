@@ -63,8 +63,9 @@ class HomeController extends GetxController {
 
       for (String countryName in countries) {
         try {
-          WeatherModel weatherData =
-              await WeatherRepository().getWeatherData(countryName);
+          WeatherModel weatherData = await WeatherRepository().getWeatherData(
+            countryName,
+          );
           countryList.add(weatherData);
         } catch (e) {
           Get.snackbar(
@@ -107,6 +108,7 @@ class HomeController extends GetxController {
           backgroundColor: Get.theme.snackBarTheme.backgroundColor,
           colorText: Colors.white,
         );
+        isCityListEmpty.value = false;
         getWeatherList();
       }
     } else {
@@ -123,8 +125,9 @@ class HomeController extends GetxController {
   Future<bool> countryValidationToAdd(String countryName) async {
     var countries = box.read("COUNTRIES") ?? [];
     //Get.log('test: country to add: $countryName');
-    if (countries
-        .any((country) => country.toLowerCase() == countryName.toLowerCase())) {
+    if (countries.any(
+      (country) => country.toLowerCase() == countryName.toLowerCase(),
+    )) {
       //Get.log('test: Country already exists');
       Get.snackbar(
         'Country already exists',
@@ -178,8 +181,9 @@ class HomeController extends GetxController {
 
   void removeCountry(String countryName) {
     var countries = box.read("COUNTRIES") ?? [];
-    countryName = countryName
-        .toLowerCase(); // Convert input to lowercase for case-insensitive comparison
+    countryName =
+        countryName
+            .toLowerCase(); // Convert input to lowercase for case-insensitive comparison
     countries.removeWhere((country) => country.toLowerCase() == countryName);
     box.write("COUNTRIES", countries);
     getWeatherList();
