@@ -13,7 +13,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
+        
+      - name: Setup Java (JDK 17)
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
@@ -25,8 +31,6 @@ jobs:
       - name: Fix flare_flutter hashValues issue
         run: |
           sed -i 's/hashValues/Object.hash/g' ~/.pub-cache/hosted/pub.dev/flare_flutter-3.0.2/lib/provider/asset_flare.dart
-
-
 
       - name: Build APK
         run: flutter build apk --release
